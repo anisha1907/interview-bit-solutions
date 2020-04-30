@@ -1,0 +1,31 @@
+vector<vector<int> > Solution::generateMatrix(int A) {
+    vector<vector<int> >v(A,vector<int>(A,0));
+
+int k=1,i=0,j=0;
+int l=A;
+while(k<=(A*A))
+{
+    v[i][j]=k;
+   if(i==A-l and j<l-1)
+   {
+       j++;
+   }
+   else if(j==l-1 and i<l-1)
+   {
+       i++;
+       if(i==(l-1))
+       l--;
+   }
+   else if(i==l and j>A-l-1)
+   {
+       j--;
+   }
+   else if(j==A-l-1 and i>A-l-1)
+   {
+       i--;
+   }
+   k++;
+}
+return v;
+
+}
