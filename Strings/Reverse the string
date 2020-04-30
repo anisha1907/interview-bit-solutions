@@ -1,0 +1,44 @@
+/*  Given a string A.
+
+Return the string A after reversing the string word by word 
+For Example
+
+Input 1:
+    A = "the sky is blue"
+Output 1:
+    "blue is sky the"
+
+Input 2:
+    A = "this is ib"
+Output 2:
+    "ib is this"        */
+
+
+
+string Solution::solve(string A) {
+    int n=A.size();
+    string res="";
+    int prev=n-1,curr=0;
+    if(n==1)return A;
+    for(int i=n-1;i>=0;i--){
+        if(A[i]!=' '&&i!=0)continue;
+        else curr=i;
+        if(curr!=0){
+            for(int i=curr+1;i<=prev;i++){
+                res+=A[i];
+            }
+        }
+        else{
+            for(int i=curr;i<=prev;i++){
+                res+=A[i];
+            }
+        }
+        prev=curr-1;
+        if(curr!=0){
+            res+=" ";
+        }
+    }
+    return res;
+
+}
+
