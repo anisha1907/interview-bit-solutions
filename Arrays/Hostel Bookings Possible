@@ -1,0 +1,23 @@
+bool Solution::hotel(vector<int> &arrive, vector<int> &depart, int K) {
+
+    sort(arrive.begin(), arrive.end());
+    sort(depart.begin(), depart.end());
+    
+    long long size = *max_element(depart.begin(), depart.end()), maxcount=INT_MIN;
+    
+    for(long long i=0, a=0, d=0, nop=0; i<size; i++)
+    {
+        while(a<arrive.size() && arrive[a]==i)
+        {
+            a++;
+            nop++;
+        }    
+        while(d<depart.size() && depart[d]==i)
+        {
+            d++;
+            nop--;
+        }
+        maxcount = max(maxcount, nop);
+    }
+    return (K >= maxcount);
+}
