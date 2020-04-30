@@ -1,0 +1,16 @@
+vector<string> Solution::fizzBuzz(int A) {
+    vector<string> B(A);
+    for(int i=1;i<=A;i++){
+        if(i%3!=0&&i%5!=0){
+            B[i-1]+=to_string(i);
+        }
+        if(i%3==0){
+            B[i-1]+="Fizz";
+        }
+        if(i%5==0){
+            B[i-1]+="Buzz";
+        }
+    }
+    return B;
+
+}
