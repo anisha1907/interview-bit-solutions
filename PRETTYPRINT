@@ -1,0 +1,19 @@
+//Print concentric rectangular pattern in a 2d matrix.
+
+vector<vector<int> > Solution::prettyPrint(int A) {
+    int size=2*A-1;
+    int lim=size, temp=0;
+    vector<vector<int>> res(size,vector<int>(size));
+    while(A>0){
+        for(int i=temp;i<lim;i++){
+            for(int j=temp;j<lim;j++){
+                res[i][j]=A;
+            }
+        }
+        A--;
+        lim--;
+        temp++;
+    }
+    return res;
+
+}
